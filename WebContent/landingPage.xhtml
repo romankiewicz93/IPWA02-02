@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+<f:metadata>
+    <f:viewAction action="#{userMB.initDataTable}" />
+</f:metadata>
+
+<h:head>
+    <style>
+        /* Custom CSS styles */
+        .body-bg {
+            background-color: #F7F7F7; /* Light gray */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .title {
+            color: #2980B9; /* Dark blue */
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #2980B9; /* Dark blue */
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        /* Button styles */
+        .rounded-button {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .citizen-button {
+            background-color: #5E666C; 
+            color: #FFFFFF; /* White */
+        }
+        
+        .scientist-button {
+            background-color: #CEDDE7; 
+            color: #000000; /* Black */
+        }
+    </style>
+</h:head>
+
+<h:body class="body-bg">
+    <h1 class="title">Global CO2-Emissions</h1>
+    <p class="description">
+        Welcome to our application! This web application provides accessible data on global CO2 emissions to the public.<br/>It allows you to explore current CO2 emissions of your country of citizenship without the need for a login.<br/> Registered scientists can also contribute their latest climate research data or make corrections through the secure backend interface.
+    </p>
+    
+    <div>
+        <a href="CO2/dataset.xhtml"><p:commandButton type="button" value="Citizen" styleClass="rounded-button citizen-button"  /></a>
+        <span></span>
+        <a href="Users/register.xhtml"><p:commandButton type="button" value="Scientist" styleClass="rounded-button scientist-button" /></a>   
+    </div>
+
+</h:body>
+</html>

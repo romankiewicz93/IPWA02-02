@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+<f:metadata>
+    <f:viewAction action="#{co2E.initForm}" />
+</f:metadata>
+<h:head>
+	<style>
+		/* Custom CSS styles */
+	  .body-bg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #F7F7F7; /* Light gray */
+        }
+		
+		.title {
+			color: #2980B9; /* Dark blue */
+			font-size: 32px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		
+		  .form-input {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #CEDDE7; /* Light blue */
+            width: 100%; /* Take up the full width of the form */
+        }
+		
+		.description {
+			color: #2980B9; /* Dark blue */
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+		
+		.separator {
+			border-top: 1px solid #ccc;
+			margin: 10px 0;
+		}
+	</style>
+</h:head>
+
+<h:body class="body-bg">
+	<ui:include src="navbar.xhtml" />
+	<h1 class="title">DELETE THE EMISSION OF ${co2E.selectedCo2.country_name}</h1>
+	
+	<h:form>
+	    <p:outputLabel for="country_name" value="COUNTRY :" />
+		<p:inputText class="form-input" id="country_name" value="#{co2E.selectedCo2.country_name}" />
+		
+		<p:separator styleClass="separator" />
+		 
+		<p:outputLabel for="year" value="YEAR :" />
+		<p:inputText id="year" class="form-input" value="#{co2E.selectedCo2.year}" />
+		
+		<p:separator styleClass="separator" />
+		  
+		<p:outputLabel for="emission_kt" value="QUANTITY :" />
+		<p:inputText class="form-input" id="emission_kt" value="#{co2E.selectedCo2.emission_kt}" />
+		<p:separator styleClass="separator" />
+		
+		<p:commandButton value="delete" action="#{co2E.delete}" />
+		<p:button value="Cancel" outcome="dataset" > </p:button> 
+		
+	</h:form>
+</h:body>
+
+</html>

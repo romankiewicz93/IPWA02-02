@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+      
+<f:metadata>
+    <f:viewAction action="#{userMB.initDataTable}" />
+</f:metadata>
+
+<h:head>
+    <style>
+        /* Custom CSS styles */
+        .body-bg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #F7F7F7; /* Light gray */
+        }
+        
+        .title {
+            color: #2980B9; /* Dark blue */
+            font-size: 32px;
+            font-weight: 900; /* Increased font weight */
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #000; 
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Button styles */
+        .rounded-button {
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .data-button {
+            background-color: #5E666C; 
+            color: #FFFFFF; /* White */
+        }
+    </style>
+</h:head> 
+
+
+<h:body class="body-bg">
+	<ui:include src="navbar.xhtml" />
+     <p:outputLabel value="LIKE ZERO TO HERO" styleClass="title" />
+    <p:outputLabel value="You're Welcome. It's for our data scientists !" styleClass="description" />
+    <div>
+        <a href="dataset.xhtml"><p:commandButton type="button" value="CO2 EMISSIONS" styleClass="rounded-button data-button"  /></a>
+    </div>
+
+</h:body>
+</html>

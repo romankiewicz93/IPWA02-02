@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:metadata>
+    <f:viewAction action="#{co2E.initUserDataTable}" />
+</f:metadata>
+
+<h:head>
+    <style>
+        /* Custom CSS styles */
+        .body-bg {
+            background-color: #F7F7F7; /* Light gray */
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .title {
+            color: #2980B9; /* Dark blue */
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .title2 {
+            color: #0C283A; /* Dark blue */
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            color: #2980B9; /* Dark blue */
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .dataTable {
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .dataTable th {
+            background-color: #2980B9; /* Dark blue */
+            color: #FFFFFF; /* White */
+        }
+        
+        .dataTable td {
+            text-align: center;
+        }
+        
+        .deleteButton {
+            background-color: #C0392B;
+            color: #C0392B; 
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .editButton {
+            background-color: #145A32;
+            color: #145A32; 
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .actionButton:hover {
+            background-color: #34495E; /* Darker blue */
+        }
+        
+        .addButton {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</h:head>
+
+<h:body class="body-bg">
+    <ui:include src="navbar.xhtml" />
+    <p:outputLabel styleClass="title" value="CO2 emissions list" />
+    <br></br>
+    <p:outputLabel styleClass="title2" value="All information about the latest CO2 emissions" />
+    
+    <p:dataTable value="#{co2E.listCo2}" var="co2" styleClass="dataTable">
+        <p:column headerText="Country">
+            <h:outputText value="#{co2.country_name}" />
+        </p:column>
+        <p:column headerText="Year">
+            <h:outputText value="#{co2.year}" />
+        </p:column>
+        <p:column headerText="Quantity in kt">
+            <h:outputText value="#{co2.emission_kt}" />
+        </p:column>
+        <p:column headerText="Approved">
+            <h:outputText value="#{co2.approuved}" />
+        </p:column>
+        <p:column headerText="Actions">
+                <p:button value="Edit" outcome="edit"  >
+                	<f:param name="id" value="#{co2.id}" />
+                </p:button>
+                <p:button value="del" outcome="delete">
+                	<f:param name="id" value="#{co2.id}" />
+                </p:button>
+        </p:column>
+    </p:dataTable>
+    
+    <div class="addButton">
+        <h:form>
+            <p:commandButton value="Add new CO2 emission" action="add.xhtml" styleClass="actionButton" />
+        </h:form>
+    </div>
+</h:body>
+</html>

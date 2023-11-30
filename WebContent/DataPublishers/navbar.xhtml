@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2980B9; /* Dark blue */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .navbar li {
+            margin-left: 10px;
+        }
+        
+        .navbar li:first-child {
+            margin-left: 0;
+        }
+        
+        .navbar li a {
+            color: #FFFFFF; /* White */
+            text-decoration: none;
+            margin: 0 10px;
+            background-color: #2E86C1; /* Blue */
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .navbar li a:hover {
+            background-color: #CEDDE7; /* Light blue */
+            border-radius: 5px;
+        }
+        
+        .navbar .disconnect-button {
+            background-color: #C0392B; /* Red */
+            color: #FFFFFF; /* White */
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .navbar .disconnect-button:hover {
+            background-color: #E74C3C; /* Light red */
+            border-radius: 5px;
+        }
+        
+        .logo {
+            color: #FFFFFF; /* White */
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none ; 
+        } 
+    </style>
+</h:head>
+
+<h:body>
+    <div class="navbar">
+        <p:link outcome="home.xhtml" class="logo" value="LIKE ZERO TO HERO"/>
+        <ul>
+            <li><p:link outcome="home.xhtml" value="Home"/></li>
+            <li><p:link outcome="dataset.xhtml" value="CO2 Emissions"/></li>
+          <h:form>
+	            <li><p:commandLink  value="Disconnect" action="#{userMB.logout}" /></li>            
+            </h:form>
+        </ul>
+    </div>
+</h:body>
+
+</html>
